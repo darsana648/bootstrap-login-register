@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="login1.css">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <form name="myform" onsubmit="return validation()">
+        <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="row box shadow-lg">
+                <div class="col-md-6 log">
+                    <h1 class="text-primary text-center"><nobr>LOGIN TO ACCOUNT</nobr></h1><br>
+                    
+                    <input type="text" id="login_uname" name="loginUsername" placeholder="USERNAME" class="form-control mb-3"><br>
+                    
+                    <input type="password" id="login_password" name="loginPassword" placeholder="PASSWORD" class="form-control mb-3"><br>
+        
+                    <button type="submit" class="btn btn-primary btn-block">LOGIN</button><br><br>
+        
+                    <p>FORGOT PASSWORD OR USERNAME? <a href="https://www.w3schools.com/">CLICK HERE.</a></p>
+                </div>
+                    
+                <div class="col-md-6 reg bg-primary text-white text-center">
+                    <h1>OR REGISTER ACCOUNT IF YOU DON'T HAVE ONE</h1><br>
+                    
+                    <input type="text" id="reg_uname" name="regUsername" placeholder="USERNAME" class="form-control mb-3"><br>
+                        
+                    <input type="email" id="reg_email" name="regEmail" placeholder="EMAIL" class="form-control mb-3"><br>
+                    
+                    <input type="password" id="reg_password" name="regPassword" placeholder="PASSWORD" class="form-control mb-3"><br>
+                    
+                    <input type="password" id="reg_repassword" name="regRePassword" placeholder="REPEAT PASSWORD" class="form-control mb-3"><br>
+    
+                    <button type="submit" class="btn btn-primary btn-block">REGISTER</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Bootstrap JS and dependencies (optional but recommended) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        function validation() {
+            var username = document.myform.regUsername.value;
+            var email = document.myform.regEmail.value;
+            var password = document.myform.regPassword.value;
+            var repassword = document.myform.regRePassword.value;
+
+            if (username == null || username == "") {
+                alert("Username can't be blank");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email == null || email == "" || !emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            if (password !== repassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
